@@ -42,7 +42,7 @@ const Dashboard = () => {
   const classes = useStyles();
 
   // context store
-  const [allChats] = useContext(CTX);
+  const {allChats, sendChatAction} = useContext(CTX);
   const topics = Object.keys(allChats);
 
   // local state
@@ -89,6 +89,10 @@ const Dashboard = () => {
           <Button
             variant='contained'
             color='primary'
+            onClick={()=>{
+              sendChatAction(textValue);
+              changeTextValue('');
+            }}
             className={classes.button}>
             SEND
           </Button>
